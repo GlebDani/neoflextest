@@ -11,9 +11,10 @@ import java.util.Arrays;
 public class HolidayPaymentService {
 
 
-    public String calculatePayment(int salary,int dayOfHoliday, LocalDate start, LocalDate end) {
+    public String calculatePayment(int salary, int dayOfHoliday, LocalDate start, LocalDate end) {
         String answer = "Incorrect input data";
         int dayOfHolidayLocal;
+        System.out.println(dayOfHoliday);
         if(start!=null && end!=null) {
             dayOfHolidayLocal = (int) start.datesUntil(end)
                     .map(LocalDate::getDayOfWeek)
@@ -21,10 +22,9 @@ public class HolidayPaymentService {
                     .count();
         }
         else
-            dayOfHolidayLocal = dayOfHoliday;
+            dayOfHolidayLocal = (dayOfHoliday);
         if(salary*dayOfHolidayLocal > 0)
             answer = String.valueOf( salary * dayOfHolidayLocal);
-
         return answer;
 
     }

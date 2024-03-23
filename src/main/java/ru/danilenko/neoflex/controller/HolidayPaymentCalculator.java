@@ -22,7 +22,7 @@ public class HolidayPaymentCalculator {
     @GetMapping("/calculate")
     @ResponseBody
     public String getCalculation(@RequestParam(value = "salary") int salary,
-                               @RequestParam(value = "dayOfHolidays", required = false) int dayOfHolidays,
+                               @RequestParam(value = "dayOfHolidays", required = false, defaultValue = "0") int dayOfHolidays,
                                @RequestParam(value = "dayOfStart", required = false) LocalDate dayOfStart,
                                @RequestParam(value = "dayOfEnd", required = false) LocalDate dayOfEnd) {
         return holidayPaymentService.calculatePayment(salary,dayOfHolidays,dayOfStart,dayOfEnd);
